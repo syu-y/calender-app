@@ -7,3 +7,21 @@ export const get = async (path) => {
 
   return result;
 };
+
+const header = {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
+
+export const post = async (path, body) => {
+  const options = {
+    ...header,
+    method: 'POST',
+    body: JSON.stringify(body),
+  };
+
+  const response = await fetch(url(path), options);
+  const result = await response.json();
+  return result;
+};
