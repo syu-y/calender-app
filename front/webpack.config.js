@@ -1,17 +1,14 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: './src/index.jsx',
   output: {
-    path: path.join(__dirname, "public/js"),
-    filename: "bundle.js"
+    path: path.join(__dirname, 'public/js'),
+    filename: 'bundle.js',
   },
   resolve: {
-    modules: [
-      path.resolve(__dirname, 'src'),
-      'node_modules',
-    ],
-    extensions: [".js", ".jsx"]
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    extensions: ['.js', '.jsx'],
   },
 
   module: {
@@ -20,50 +17,50 @@ module.exports = {
         test: /(\.js|\.jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
               [
-                "@babel/preset-env",
+                '@babel/preset-env',
                 {
                   targets: {
-                    node: "current"
-                  }
-                }
+                    node: 'current',
+                  },
+                },
               ],
-              "@babel/preset-react"
+              '@babel/preset-react',
             ],
             plugins: [
               [
-                "babel-plugin-import",
+                'babel-plugin-import',
                 {
-                  libraryName: "@material-ui/icons",
-                  libraryDirectory: "",
-                  camel2DashComponentName: false
-                }
-              ]
-            ]
-          }
-        }
+                  libraryName: '@material-ui/icons',
+                  libraryDirectory: '',
+                  camel2DashComponentName: false,
+                },
+              ],
+            ],
+          },
+        },
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: "style-loader"
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
-              localsConvention: "camelCase",
+              localsConvention: 'camelCase',
               modules: {
-                localIdentName: "[path][name]__[local]--[hash:base64:5]"
-              }
-            }
-          }
-        ]
-      }
-    ]
-  }
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
 };

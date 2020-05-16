@@ -6,19 +6,19 @@ import ArrowForwardIos from '@material-ui/icons/ArrowForwardIos';
 import DehazeIcon from '@material-ui/icons/Dehaze';
 
 const StyledToolbar = withStyles({
-  root: { padding: "0" }
+  root: { padding: '0' },
 })(Toolbar);
 
 const StyledTypography = withStyles({
-  root: { margin: "0 30px 0 10px" }
+  root: { margin: '0 30px 0 10px' },
 })(Typography);
 
 const StyleDatePicker = withStyles({
-  root: { marginLeft: 30 }
+  root: { marginLeft: 30 },
 })(DatePicker);
 
 const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month }) => {
-  return(
+  return (
     <StyledToolbar>
       <IconButton>
         <DehazeIcon />

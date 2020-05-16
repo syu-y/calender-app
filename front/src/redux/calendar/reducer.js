@@ -8,7 +8,7 @@ const init = formatMonth(day);
 
 const calendarReducer = (state = init, action) => {
   const { type, payload } = action;
-  switch(type) {
+  switch (type) {
     case CALENDAR_SET_MONTH:
       return payload;
     default:

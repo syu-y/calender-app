@@ -1,17 +1,17 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 import { SCHEDULES_ADD_ITEM } from 'redux/schedules/actions';
 
 const init = {
   items: [
     {
       id: 1,
-      title: "テスト",
+      title: 'テスト',
       date: dayjs(),
-      location: "会議室",
-      description: "経営戦略について"
-    }
+      location: '会議室',
+      description: '経営戦略について',
+    },
   ],
-  isLoading: false
+  isLoading: false,
 };
 
 const schedulesReducer = (state = init, action) => {
@@ -21,11 +21,11 @@ const schedulesReducer = (state = init, action) => {
     case SCHEDULES_ADD_ITEM:
       return {
         ...state,
-        items: [...state.items, { ...payload, id: state.items.length + 1 }]
+        items: [...state.items, { ...payload, id: state.items.length + 1 }],
       };
     default:
       return state;
   }
-}
+};
 
 export default schedulesReducer;

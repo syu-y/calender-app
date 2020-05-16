@@ -7,32 +7,37 @@ import {
   TextField,
   DialogActions,
   Button,
-  IconButton } from '@material-ui/core';
-import { LocationOnOutlined, NotesOutlined, AccessTime, Close } from '@material-ui/icons'
+  IconButton,
+} from '@material-ui/core';
+import {
+  LocationOnOutlined,
+  NotesOutlined,
+  AccessTime,
+  Close,
+} from '@material-ui/icons';
 import { DatePicker } from '@material-ui/pickers';
 import { withStyles } from '@material-ui/styles';
-import * as styles from 'components/AddScheduleDialog/style.css'
+import * as styles from 'components/AddScheduleDialog/style.css';
 
-const spacer = { margin: "4px 0" };
+const spacer = { margin: '4px 0' };
 
 const Title = withStyles({
   root: {
     marginBottom: 32,
-    fontSize: 22
-  }
-})(Input)
+    fontSize: 22,
+  },
+})(Input);
 
-const AddScheduleDialog  = ({
-    schedule: {
-      form: { title, date, location, description },
-      isDialogOpen
-    },
-    setSchedule,
-    closeDialog,
-    saveSchedule
-  }) => {
-
-  return(
+const AddScheduleDialog = ({
+  schedule: {
+    form: { title, date, location, description },
+    isDialogOpen,
+  },
+  setSchedule,
+  closeDialog,
+  saveSchedule,
+}) => {
+  return (
     <Dialog open={isDialogOpen} onClose={closeDialog} maxWidth="xs" fullWidth>
       <DialogActions>
         <div className={styles.closeButton}>
@@ -48,11 +53,11 @@ const AddScheduleDialog  = ({
           fullWidth
           placeholder="タイトルと日時を追加"
           value={title}
-          onChange={e => setSchedule({ title: e.target.value })}
-          />
+          onChange={(e) => setSchedule({ title: e.target.value })}
+        />
         {/* Date */}
-        <Grid container spacing={1} alignItems="center" justify="space-between" >
-          <Grid item >
+        <Grid container spacing={1} alignItems="center" justify="space-between">
+          <Grid item>
             <AccessTime />
           </Grid>
           <Grid item xs={10}>
@@ -64,13 +69,13 @@ const AddScheduleDialog  = ({
               fullWidth
               style={spacer}
               value={date}
-              onChange={ d=> setSchedule({  date: d })}
+              onChange={(d) => setSchedule({ date: d })}
             />
           </Grid>
         </Grid>
         {/* Location */}
-        <Grid container spacing={1} alignItems="center" justify="space-between" >
-          <Grid item >
+        <Grid container spacing={1} alignItems="center" justify="space-between">
+          <Grid item>
             <LocationOnOutlined />
           </Grid>
           <Grid item xs={10}>
@@ -79,13 +84,13 @@ const AddScheduleDialog  = ({
               fullWidth
               placeholder="場所を追加"
               value={location}
-              onChange={e => setSchedule({ location: e.target.value })}
-              />
+              onChange={(e) => setSchedule({ location: e.target.value })}
+            />
           </Grid>
         </Grid>
         {/* Description */}
-        <Grid container spacing={1} alignItems="center" justify="space-between" >
-          <Grid item >
+        <Grid container spacing={1} alignItems="center" justify="space-between">
+          <Grid item>
             <NotesOutlined />
           </Grid>
           <Grid item xs={10}>
@@ -94,7 +99,7 @@ const AddScheduleDialog  = ({
               fullWidth
               placeholder="説明を追加"
               value={description}
-              onChange={e => setSchedule({ description: e.target.value })}
+              onChange={(e) => setSchedule({ description: e.target.value })}
             />
           </Grid>
         </Grid>
@@ -106,6 +111,6 @@ const AddScheduleDialog  = ({
       </DialogActions>
     </Dialog>
   );
-}
+};
 
 export default AddScheduleDialog;

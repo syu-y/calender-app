@@ -3,39 +3,42 @@ import { GridList, Typography } from '@material-ui/core';
 import * as styles from 'components/CalendarBoard/style.css';
 import CalenderElement from 'components/CalenderElement';
 
-const days = ["日", "月", "火", "水", "木", "金", "土"];
+const days = ['日', '月', '火', '水', '木', '金', '土'];
 
-const CalendarBoard = ({
-  calendar,
-  month,
-  openAddScheduleDialog,
-}) => {
-
+const CalendarBoard = ({ calendar, month, openAddScheduleDialog }) => {
   console.log(calendar);
   return (
     <div className={styles.container}>
-      <GridList className={styles.grid} cols={7} spacing={0} cellHeight={"auto"}>
-        {days.map( d => (
+      <GridList
+        className={styles.grid}
+        cols={7}
+        spacing={0}
+        cellHeight={'auto'}
+      >
+        {days.map((d) => (
           <li key={d}>
             <Typography
-            className={styles.days}
-            color="textSecondary"
-            align="center"
-            variant="caption"
-            component="div"
+              className={styles.days}
+              color="textSecondary"
+              align="center"
+              variant="caption"
+              component="div"
             >
               {d}
             </Typography>
           </li>
         ))}
         {calendar.map(({ date, schedules }) => (
-          <li key={date.toISOString()} onClick={ () => openAddScheduleDialog(date) }>
+          <li
+            key={date.toISOString()}
+            onClick={() => openAddScheduleDialog(date)}
+          >
             <CalenderElement day={date} month={month} schedules={schedules} />
           </li>
         ))}
       </GridList>
     </div>
   );
-}
+};
 
 export default CalendarBoard;

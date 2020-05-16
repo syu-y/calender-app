@@ -2,27 +2,30 @@ import { connect } from 'react-redux';
 import CalenderBoard from 'components/CalendarBoard/presentation';
 import { createCalendar } from 'services/calendar';
 import { setSchedules } from 'services/schedule';
-import { addScheduleSetValue, addScheduleOpenDialog } from 'redux/addSchedule/actions';
+import {
+  addScheduleSetValue,
+  addScheduleOpenDialog,
+} from 'redux/addSchedule/actions';
 
 const mapStateToProps = (state) => ({
   calendar: state.calendar,
-  schedules: state.schedules
+  schedules: state.schedules,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   openAddScheduleDialog: (d) => {
     dispatch(addScheduleOpenDialog());
     dispatch(addScheduleSetValue({ date: d }));
-  }
+  },
 });
 
 const mergeProps = (stateProps, dispatchPros) => {
   const {
     calendar: month,
-    schedules: { items: schedules }
+    schedules: { items: schedules },
   } = stateProps;
 
-  const calendar = setSchedules(createCalendar(month), schedules)
+  const calendar = setSchedules(createCalendar(month), schedules);
 
   return {
     ...stateProps,
@@ -35,5 +38,5 @@ const mergeProps = (stateProps, dispatchPros) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-  mergeProps
+  mergeProps,
 )(CalenderBoard);

@@ -3,17 +3,17 @@ import dayjs from 'dayjs';
 import {
   ADD_SCHEDULE_SET_VALUE,
   ADD_SCHEDULE_OPEN_DIALOG,
-  ADD_SCHEDULE_CLOSE_DIALOG
-} from 'redux/addSchedule/actions'
+  ADD_SCHEDULE_CLOSE_DIALOG,
+} from 'redux/addSchedule/actions';
 
 const init = {
   form: {
-    title: "",
-    description: "",
+    title: '',
+    description: '',
     date: dayjs(),
-    location: ""
+    location: '',
   },
-  isDialogOpen: false
+  isDialogOpen: false,
 };
 
 const addScheduleReducer = (state = init, action) => {
@@ -25,19 +25,19 @@ const addScheduleReducer = (state = init, action) => {
         ...state,
         form: {
           ...state.form,
-          ...payload
-        }
+          ...payload,
+        },
       };
     case ADD_SCHEDULE_OPEN_DIALOG:
       return {
         ...state,
-        isDialogOpen: true
+        isDialogOpen: true,
       };
     case ADD_SCHEDULE_CLOSE_DIALOG:
       return init;
     default:
       return state;
   }
-}
+};
 
 export default addScheduleReducer;
