@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from 'redux/rootReducer';
-import { applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import DayjsUtils from '@date-io/dayjs';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ja';
+import rootReducer from 'redux/rootReducer';
 import CalendarBoard from 'components/CalendarBoard/container';
 import Navigation from 'components/Navigation/container';
 import AddScheduleDialog from 'components/AddScheduleDialog/container';
