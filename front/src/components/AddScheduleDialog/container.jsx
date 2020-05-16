@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import {
   addScheduleSetValue,
   addScheduleCloseDialog,
+  addScheduleStartEdit,
 } from 'redux/addSchedule/actions';
 import { asyncScheduleAddItem } from 'redux/schedules/effects';
 
@@ -18,6 +19,9 @@ const mapDispatchToProps = (dispatch) => ({
   saveSchedule: (schedule) => {
     dispatch(asyncScheduleAddItem(schedule));
     dispatch(addScheduleCloseDialog());
+  },
+  setIsEditStart: () => {
+    dispatch(addScheduleStartEdit());
   },
 });
 
