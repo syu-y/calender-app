@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import calendarReducer from "./calendar/reducer";
-import addScheduleReducer from "./addSchedule/reducer";
-import schedulesReducer from "./schedules/reducer";
+import calendarReducer from "redux/calendar/reducer";
+import addScheduleReducer from "redux/addSchedule/reducer";
+import schedulesReducer from "redux/schedules/reducer";
 
 const rootReducer = combineReducers({
   calendar: calendarReducer,

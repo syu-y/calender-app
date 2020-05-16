@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import CalenderBoard from './presentation';
-import { createCalendar } from '../../services/calendar';
-import { setSchedules } from '../../services/schedule';
-import { addScheduleSetValue, addScheduleOpenDialog } from '../../redux/addSchedule/actions';
+import CalenderBoard from 'components/CalendarBoard/presentation';
+import { createCalendar } from 'services/calendar';
+import { setSchedules } from 'services/schedule';
+import { addScheduleSetValue, addScheduleOpenDialog } from 'redux/addSchedule/actions';
 
 const mapStateToProps = (state) => ({
   calendar: state.calendar,

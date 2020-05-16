@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { SCHEDULES_ADD_ITEM } from './actions'
+import { SCHEDULES_ADD_ITEM } from 'redux/schedules/actions';
 
 const init = {
   items: [

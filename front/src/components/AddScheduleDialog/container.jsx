@@ -1,7 +1,7 @@
-import AddScheduleDialog from './presentation';
+import AddScheduleDialog from 'components/AddScheduleDialog/presentation';
 import { connect } from 'react-redux';
-import { addScheduleSetValue, addScheduleCloseDialog } from '../../redux/addSchedule/actions';
-import { scheduleSAddItem } from '../../redux/schedules/actions';
+import { addScheduleSetValue, addScheduleCloseDialog } from 'redux/addSchedule/actions';
+import { scheduleSAddItem } from 'redux/schedules/actions';
 
 const mapStateToProps = (state) => ({ schedule: state.addSchedule });
 

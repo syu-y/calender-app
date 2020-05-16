@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import { CALENDAR_SET_MONTH } from './actions';
-import { formatMonth } from '../../services/calendar';
+import { CALENDAR_SET_MONTH } from 'redux/calendar/actions';
+import { formatMonth } from 'services/calendar';
 
 const day = dayjs();
 

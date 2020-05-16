@@ -11,7 +11,7 @@ import {
 import { LocationOnOutlined, NotesOutlined, AccessTime, Close } from '@material-ui/icons'
 import { DatePicker } from '@material-ui/pickers';
 import { withStyles } from '@material-ui/styles';
-import * as styles from './style.css'
+import * as styles from 'components/AddScheduleDialog/style.css'
 
 const spacer = { margin: "4px 0" };
 

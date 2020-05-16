@@ -1,4 +1,4 @@
-import { isSameDay } from './calendar';
+import { isSameDay } from 'services/calendar';
 
 export const setSchedules = (calender, schedules) =>
   calender.map( c => ({

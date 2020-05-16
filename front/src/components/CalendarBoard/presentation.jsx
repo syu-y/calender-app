@@ -1,7 +1,7 @@
 import React from 'react';
 import { GridList, Typography } from '@material-ui/core';
-import * as styles from './style.css';
-import CalenderElement from '../CalenderElement';
+import * as styles from 'components/CalendarBoard/style.css';
+import CalenderElement from 'components/CalenderElement';
 
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
