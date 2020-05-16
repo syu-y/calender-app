@@ -25,3 +25,9 @@ export const post = async (path, body) => {
   const result = await response.json();
   return result;
 };
+
+export const deleteRequest = async (path) => {
+  const options = { method: 'DELETE' };
+  await fetch(url(path), options);
+  return { status: 200, message: 'Success' };
+};

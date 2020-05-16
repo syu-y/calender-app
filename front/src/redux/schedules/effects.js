@@ -2,8 +2,9 @@ import {
   schedulesSetLoading,
   schedulesFetchItem,
   schedulesAddItem,
+  schedulesDeleteItem,
 } from 'redux/schedules/actions';
-import { get, post } from 'services/api';
+import { get, post, deleteRequest } from 'services/api';
 import { formatSchedule } from 'services/schedule';
 
 export const asyncScheduleFetchItem = ({ month, year }) => async (dispatch) => {
@@ -22,4 +23,13 @@ export const asyncScheduleAddItem = (schedule) => async (dispatch) => {
 
   const newSchedule = formatSchedule(result);
   dispatch(schedulesAddItem(newSchedule));
+};
+
+export const asyncScheduleDeleteItem = (id) => async (dispatch, getState) => {
+  dispatch(schedulesSetLoading());
+  const currentSchedule = getState().schedules.items;
+  await deleteRequest(`schedules/${id}`);
+
+  const newSchedule = currentSchedule.filter((s) => s.id !== id);
+  dispatch(schedulesDeleteItem(newSchedule));
 };
