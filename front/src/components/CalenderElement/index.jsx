@@ -10,7 +10,7 @@ import {
 } from 'services/calendar';
 import Schedule from 'components/Schedule';
 
-const CalenderElement = ({ day, month, schedules }) => {
+const CalenderElement = ({ day, month, schedules, ...props }) => {
   const currentMonth = getMonth(month);
   const isCurrentMonth = isSameMonth(day, currentMonth);
   const textColor = isCurrentMonth ? 'textPrimary' : 'textSecondary';
@@ -36,7 +36,7 @@ const CalenderElement = ({ day, month, schedules }) => {
       </Typography>
       <div className={styles.schedules}>
         {schedules.map((e) => (
-          <Schedule key={e.id} schedule={e} />
+          <Schedule key={e.id} schedule={e} {...props} />
         ))}
       </div>
     </div>

@@ -5,7 +5,12 @@ import CalenderElement from 'components/CalenderElement';
 
 const days = ['日', '月', '火', '水', '木', '金', '土'];
 
-const CalendarBoard = ({ calendar, month, openAddScheduleDialog }) => {
+const CalendarBoard = ({
+  calendar,
+  month,
+  openAddScheduleDialog,
+  openCurrentScheduleDialog,
+}) => {
   console.log(calendar);
   return (
     <div className={styles.container}>
@@ -33,7 +38,12 @@ const CalendarBoard = ({ calendar, month, openAddScheduleDialog }) => {
             key={date.toISOString()}
             onClick={() => openAddScheduleDialog(date)}
           >
-            <CalenderElement day={date} month={month} schedules={schedules} />
+            <CalenderElement
+              day={date}
+              month={month}
+              schedules={schedules}
+              onClickSchedule={openCurrentScheduleDialog}
+            />
           </li>
         ))}
       </GridList>
