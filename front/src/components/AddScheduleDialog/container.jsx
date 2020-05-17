@@ -6,6 +6,7 @@ import {
   addScheduleStartEdit,
 } from 'redux/addSchedule/actions';
 import { asyncScheduleAddItem } from 'redux/schedules/effects';
+import { isCloseDialog } from 'services/schedule';
 
 const mapStateToProps = (state) => ({ schedule: state.addSchedule });
 
@@ -25,16 +26,25 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-const mergeProps = (stateProps, dispatchPros) => ({
-  ...stateProps,
-  ...dispatchPros,
-  saveSchedule: () => {
-    const {
-      schedule: { form: schedule },
-    } = stateProps;
-    dispatchPros.saveSchedule(schedule);
-  },
-});
+const mergeProps = (stateProps, dispatchPros) => {
+  const {
+    schedule: { form: schedule },
+  } = stateProps;
+  const { saveSchedule, closeDialog } = dispatchPros;
+
+  return {
+    ...stateProps,
+    ...dispatchPros,
+    saveSchedule: () => {
+      saveSchedule(schedule);
+    },
+    closeDialog: () => {
+      if (isCloseDialog(schedule)) {
+        closeDialog();
+      }
+    },
+  };
+};
 
 export default connect(
   mapStateToProps,
