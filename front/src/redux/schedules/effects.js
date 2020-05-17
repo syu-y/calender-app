@@ -12,8 +12,7 @@ import { formatSchedule } from 'services/schedule';
 export const asyncScheduleFetchItem = ({ month, year }) => async (dispatch) => {
   dispatch(schedulesSetLoading());
   try {
-    const result = await get(`schedules`);
-    // const result = await get(`schedules/?month=${month}&year=${year}`);
+    const result = await get(`schedules/?month=${month}&year=${year}`);
     const formatedSchedule = result.map((r) => formatSchedule(r));
     dispatch(schedulesFetchItem(formatedSchedule));
   } catch (err) {
